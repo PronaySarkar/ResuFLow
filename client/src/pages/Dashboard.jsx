@@ -17,7 +17,8 @@ import toast from "react-hot-toast";
 import pdfToText from "react-pdftotext";
 
 const Dashboard = () => {
-  const { user, token } = useSelector((state) => state.auth);
+  const { token } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
 
   const colors = ["#9333ea", "#d97706", "#dc2626", "#0284c7", "#16a34a"];
   const [allResumes, setAllResumes] = useState([]);
@@ -125,7 +126,7 @@ const Dashboard = () => {
     <div>
       <div className="max-w-7x1 mx-auto px-4 py-8">
         <p className="text-2xl font-medium mb-6 bg-gradient-to-r from-slate-600 to-slate-700 bg-clip-text text-transparent sm:hidden">
-          Welcome, joe Doe
+          Welcome, {user?.name}!
         </p>
 
         <div className="flex gap-4">
